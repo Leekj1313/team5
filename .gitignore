@@ -31,4 +31,9 @@ word/.settings/org.eclipse.jdt.core.prefs
 
 word/.gitignore
 
+account/.classpath
+account/.project
+account/.settings/org.eclipse.core.resources.prefs
+account/.settings/org.eclipse.jdt.core.prefs
 
+account/.gitignore
