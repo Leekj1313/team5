@@ -37,3 +37,8 @@ account/.settings/org.eclipse.core.resources.prefs
 account/.settings/org.eclipse.jdt.core.prefs
 
 account/.gitignore
+homework/.classpath
+homework/.settings/org.eclipse.core.resources.prefs
+homework/.settings/org.eclipse.jdt.core.prefs
+
+homework/.gitignore
