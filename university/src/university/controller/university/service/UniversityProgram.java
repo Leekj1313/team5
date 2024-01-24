@@ -1,4 +1,4 @@
-package university.controller;
+package src.university.controller.university.service;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
