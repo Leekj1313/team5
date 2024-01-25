@@ -1,4 +1,4 @@
-package universityservice;
+package university.service;
 
 public class PrintServiceImp implements printService {
 

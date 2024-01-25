@@ -1,4 +1,4 @@
-package universityservice;
+package university.service;
 
 public interface printService {
 	
