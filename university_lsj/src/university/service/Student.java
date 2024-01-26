@@ -1,4 +1,4 @@
-package universityservice;
+package university.service;
 
 import java.util.List;
 import java.util.Objects;

@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import university.program;
-import universityservice.PrintServiceImp;
-import universityservice.Professor;
-import universityservice.ProfessorService;
-import universityservice.ProfessorServiceImp;
-import universityservice.Student;
-import universityservice.StudentService;
-import universityservice.StudentServiceImp;
+import university.service.PrintServiceImp;
+import university.service.Professor;
+import university.service.ProfessorService;
+import university.service.ProfessorServiceImp;
+import university.service.Student;
+import university.service.StudentService;
+import university.service.StudentServiceImp;
 
 public class UniversityProgram implements program {
 	private Scanner scan = new Scanner(System.in);
