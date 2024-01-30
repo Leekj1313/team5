@@ -11,11 +11,10 @@ public class StudentServiceImp implements StudentService {
 	public boolean addStudent(List<Student>asd) {
 				//학생 정보 추가
 				System.out.println(" 학생명 :");
-				scan.nextLine();
 				String sNam = scan.nextLine();
-				System.out.println(" 학생 번호 :");
+				System.out.print(" 학생 번호 :");
 				String sNum = scan.nextLine();
-				System.out.println(" 학생 과목:");
+				System.out.print(" 학생 과목:");
 				String sub = scan.nextLine();
 					
 				Student std = new Student (sNam, sNum, sub); //생성자 바꾸기
@@ -33,13 +32,13 @@ public class StudentServiceImp implements StudentService {
 			return false;
 		}
 			System.out.println("수정할 학생명 :");
-			String oldnam = scan.nextLine();
+			String oldNam = scan.nextLine();
 			System.out.println("수정할 학생번호 :");
 			String oldNum = scan.nextLine();
 			System.out.println("수정할 학생과목 :");
 			String oldSub = scan.nextLine();
 			//생성자 생성
-			Student oldSt = new Student (oldnam, oldNum, oldSub);
+			Student oldSt = new Student (oldNam, oldNum, oldSub);
 			
 			int index = ssd.indexOf(oldSt);
 			if(index != -1) {
@@ -58,12 +57,9 @@ public class StudentServiceImp implements StudentService {
 			}else{
 				System.out.println("수정에 실패했습니다");
 				return false;
-			}
-		
-		
+			}	
 				
 }
-
 	@Override
 	public boolean removeStudent(List<Student>rsd) {
 		

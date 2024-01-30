@@ -7,4 +7,6 @@ public interface printService {
 	void printProfessorMenu();
 
 	void printStudentMenu();
+	
+	
 }
