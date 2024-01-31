@@ -8,5 +8,7 @@ public interface printService {
 
 	void printStudentMenu();
 	
+	void printSubjectMenu();
+	
 	
 }
