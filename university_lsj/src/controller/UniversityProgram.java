@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import university.program;
-import university.service.PrintServiceImp;
-import university.service.Professor;
-import university.service.ProfessorService;
-import university.service.ProfessorServiceImp;
-import university.service.Student;
-import university.service.StudentService;
-import university.service.StudentServiceImp;
+import universityservice.PrintServiceImp;
+import universityservice.Professor;
+import universityservice.ProfessorService;
+import universityservice.ProfessorServiceImp;
+import universityservice.Student;
+import universityservice.StudentService;
+import universityservice.StudentServiceImp;
 
 public class UniversityProgram implements program {
 	private Scanner scan = new Scanner(System.in);
@@ -22,7 +22,6 @@ public class UniversityProgram implements program {
 	
 	StudentService sds = new StudentServiceImp();
 	List<Student> std = new ArrayList<Student>();
-	
 	
 	@Override
 	public void run() {
@@ -65,47 +64,16 @@ public class UniversityProgram implements program {
 
 	//대학교 조회 매니저
 	private void checkManager() {
-		int menu = 0;
-		do{
-			psi.printMainmenu();
-			menu = scan.nextInt();
-			runPrint(menu);
-			}while(menu != 4);
+		//전체조회 1
+		//교수조회 2 
+		//학생조회 3 
+		//학과조회 4 
+		//수강조회 5 
+		//강의조회 6
+		//이전으로 7
 		
 	}
 
-	//강의조회
-	
-	private void runPrint(int menu) {
-		switch(menu) {
-		case 1:
-			System.out.println( professors.toString());
-			//등록된 교수 조회
-			break;
-		case 2:
-			System.out.println(std.toString());
-			break;
-			//등록된 학생 조회
-		case 3:
-			//System.out.println(c);
-			//개설된 강의 조회
-			break;
-		case 4:
-			System.out.println("이전으로");
-			//이전으로
-			break;
-		default:
-			System.out.println("잘못 입력하였습니다.");
-			break;
-		
-		}
-		
-	}
-
-	
-
-	
-	
 	//학생 정보 매니저 
 	private void stdManager() {
 		int menu=0;
