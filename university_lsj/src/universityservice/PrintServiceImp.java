@@ -1,4 +1,4 @@
-package university.service;
+package universityservice;
 
 public class PrintServiceImp implements printService {
 
@@ -8,7 +8,7 @@ public class PrintServiceImp implements printService {
 		System.out.println("----------메뉴----------");
 		System.out.println("1. 교수 정보");
 		System.out.println("2. 학생 정보");
-		System.out.println("3. 강의 조회");
+		System.out.println("3. 대학교 조회");
 		System.out.println("4. 프로그램 종료");
 		System.out.println("-------------------------");
 		System.out.print  ("메뉴 선택: ");
@@ -38,20 +38,6 @@ public class PrintServiceImp implements printService {
 		System.out.println("4. 이전으로");
 		System.out.println("-------------------------");
 		System.out.print("메뉴 선택: ");
-		
-	}
-
-	@Override
-	public void printSubjectMenu() {
-		// 강의 추가
-		System.out.println("-------메뉴-----");
-		System.out.println("1. 강의 정보 추가");
-		System.out.println("2. 강의 정보 수정");
-		System.out.println("3. 강의 정보 삭제");
-		System.out.println("4. 이전으로");
-		System.out.println("--------------");
-		System.out.println("메뉴 선택 : ");
-		
 		
 	}
 

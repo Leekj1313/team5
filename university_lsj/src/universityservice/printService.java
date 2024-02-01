@@ -1,4 +1,4 @@
-package university.service;
+package universityservice;
 
 public interface printService {
 	
@@ -7,8 +7,4 @@ public interface printService {
 	void printProfessorMenu();
 
 	void printStudentMenu();
-	
-	void printSubjectMenu();
-	
-	
 }
