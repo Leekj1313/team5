@@ -6,6 +6,12 @@ public interface PrintService {
 	void printMainmenu();
 
 	void printProfessorMenu();
-
+	
 	void printStudentMenu();
+
+	void printMajorMenu();
+
+	void printClassMenu();
+
+	void searchMajor();
 }
