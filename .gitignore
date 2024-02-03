@@ -29,6 +29,7 @@ word/.project
 word/.settings/org.eclipse.core.resources.prefs
 word/.settings/org.eclipse.jdt.core.prefs
 
+<<<<<<< Updated upstream
 word/.gitignore
 
 account/.classpath
@@ -42,3 +43,10 @@ homework/.settings/org.eclipse.core.resources.prefs
 homework/.settings/org.eclipse.jdt.core.prefs
 
 homework/.gitignore
+=======
+homework/.settings/org.eclipse.core.resources.prefs
+homework/.settings/org.eclipse.jdt.core.prefs
+university_lsj/.gitattributes
+university_lsj/.settings/org.eclipse.core.resources.prefs
+university_lsj/.settings/org.eclipse.jdt.core.prefs
+>>>>>>> Stashed changes
