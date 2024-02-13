@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS `elec_community`;
-CREATE DATABASE IF NOT EXISTS `elec_community`;
+DROP DATABASE IF EXISTS elec_community;
+CREATE DATABASE IF NOT EXISTS elec_community;
 
+USE elec_community;
 
 DROP TABLE IF EXISTS `member`;
 
@@ -45,7 +46,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
 	`co_num`	int	PRIMARY KEY AUTO_INCREMENT,
 	`co_me_id`	varchar(20)	NOT NULL,
-	`co_po_num`	int	NOT NOT NULL,
+	`co_po_num`	int	NOT NULL,
 	`co_content`	text	NOT NULL,
 	`co_date`	dateTime	NOT NULL
 );
