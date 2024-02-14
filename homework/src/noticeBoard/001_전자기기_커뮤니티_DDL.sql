@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `member`;
 
 CREATE TABLE `member` (
 	`me_id`	varchar(20)	PRIMARY KEY,
-	`active`	varchar(10)	NOT NULL,
+	`me_active`	varchar(10)	NOT NULL,
 	`me_pw`	varchar(20)	NOT NULL,
 	`me_email`	varchar(30)	NOT NULL,
 	`me_addr`	varchar(30)	NOT NULL,
@@ -20,13 +20,13 @@ DROP TABLE IF EXISTS `post`;
 
 CREATE TABLE `post` (
 	`po_num`	int	PRIMARY KEY AUTO_INCREMENT,
-	`comu_num`	int	NOT NULL,
+	`po_comu_num`	int	NOT NULL,
 	`po_li_num`	int	NOT NULL,
 	`po_me_id`	varchar(20)	NOT NULL,
 	`po_catrgory`	varchar(10)	NOT NULL,
-	`po_divice`	varchar(10)	NULL,
-	`po_title`	varchar(50)	NULL,
-	`po_writer`	varchar(20)	NULL,
+	`po_divice`	varchar(10)	NOT NULL,
+	`po_title`	varchar(50)	NOT NULL,
+	`po_writer`	varchar(20)	NOT NULL,
 	`po_date`	date	NOT NULL,
 	`po_content`	text	NOT NULL,
 	`po_view`	int	NOT NULL
@@ -35,10 +35,10 @@ CREATE TABLE `post` (
 DROP TABLE IF EXISTS `link`;
 
 CREATE TABLE `link` (
-	`li_num`	int PRIMARY KEY AUTO_INCREMENT,
-	`li_vidio`	varchar(100)	NULL,
-	`li_img`	varchar(100)	NULL,
-	`li_origin`	varchar(100)	NULL
+	`li_num`	int	PRIMARY KEY AUTO_INCREMENT,
+	`li_vidio`	varchar(100)	NOT NULL,
+	`li_img`	varchar(100)	NOT NULL,
+	`li_origin`	varchar(100)	NOT NULL
 );
 
 DROP TABLE IF EXISTS `comment`;
@@ -54,7 +54,7 @@ CREATE TABLE `comment` (
 DROP TABLE IF EXISTS `community`;
 
 CREATE TABLE `community` (
-	`comu_num`	int	primary key auto_increment,
+	`comu_num`	int	PRIMARY KEY AUTO_INCREMENT,
 	`comu_name`	varchar(30)	NOT NULL
 );
 
@@ -73,24 +73,34 @@ CREATE TABLE `report` (
 DROP TABLE IF EXISTS `report_count`;
 
 CREATE TABLE `report_count` (
-	`rec_type`	varchar(30)	PRIMARY KEY
+	`rc_type`	varchar(30)	PRIMARY KEY
 );
 
 DROP TABLE IF EXISTS `active`;
 
 CREATE TABLE `active` (
-	`active`	varchar(10) PRIMARY KEY
+	`active`	varchar(10)	PRIMARY KEY
+);
+
+DROP TABLE IF EXISTS `event`;
+
+CREATE TABLE `event` (
+	`eve_num`	int	PRIMARY KEY AUTO_INCREMENT,
+	`eve_me_id`	varchar(20)	NOT NULL,
+	`eve_co_num`	int	NOT NULL,
+	`eve_content`	text	NOT NULL,
+	`eve_date`	date	NOT NULL
 );
 
 ALTER TABLE `member` ADD CONSTRAINT `FK_active_TO_member_1` FOREIGN KEY (
-	`active`
+	`me_active`
 )
 REFERENCES `active` (
 	`active`
 );
 
 ALTER TABLE `post` ADD CONSTRAINT `FK_community_TO_post_1` FOREIGN KEY (
-	`comu_num`
+	`po_comu_num`
 )
 REFERENCES `community` (
 	`comu_num`
@@ -135,6 +145,20 @@ ALTER TABLE `report` ADD CONSTRAINT `FK_report_count_TO_report_1` FOREIGN KEY (
 	`rep_rec_type`
 )
 REFERENCES `report_count` (
-	`rec_type`
+	`rc_type`
+);
+
+ALTER TABLE `event` ADD CONSTRAINT `FK_member_TO_event_1` FOREIGN KEY (
+	`eve_me_id`
+)
+REFERENCES `member` (
+	`me_id`
+);
+
+ALTER TABLE `event` ADD CONSTRAINT `FK_comment_TO_event_1` FOREIGN KEY (
+	`eve_co_num`
+)
+REFERENCES `comment` (
+	`co_num`
 );
 
