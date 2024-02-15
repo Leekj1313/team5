@@ -2,7 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="it_community/src/it_community/dao/CommunityDAO.java">
+<mapper namespace="kr.kh.community.dao.CommunityDAO">
 	<!-- 태그에는 insert, select, update, delete가 들어감 -->
-  
+  <select id="selectBoardListByDate" resultType="kr.kh.community.model.vo.Post">
+  select * from Post where po_date like #{it_date}
+  </select>
 </mapper>

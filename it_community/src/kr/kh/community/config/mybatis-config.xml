@@ -15,6 +15,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="it_community/kh/account/dao/AccountMapper.xml"/>
+    <mapper resource="kr/kh/community/dao/Community_Mapper.xml"/>
   </mappers>
 </configuration>
