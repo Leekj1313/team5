@@ -2,6 +2,7 @@ package kr.kh.community.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -11,8 +12,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.community.dao.CommunityDAO;
 import kr.kh.community.model.vo.Category;
+import kr.kh.community.model.vo.Community;
 import kr.kh.community.model.vo.Post;
 import kr.kh.community.model.vo.Type;
+import kr.kh.community.pagination.Criteria;
 
 public class ItServiceImp implements ItService {
 	
@@ -55,27 +58,35 @@ public class ItServiceImp implements ItService {
 	private boolean checkCategoryNum(String po_title, int po_ca_num) {
 		//type과 일치하지 않은 카테고리 체크
 		List<Category> categoryList = communityDao.selectCategoryList(po_title);
-		//return categoryList.contains(new Category (po_title));
-		return true;
-	}
+	
+		return categoryList.contains(new Category (po_title));
+	
+		}
 
-
+	
 
 	@Override
 	public List<Category> getCategoryList(int type) {
-	
 		return communityDao.selectCategoryList(type);
 	}
 
 	@Override
-	public List<Type> getTypeList() {
+	public List<Community> getTypeList() {
 		return communityDao.selectTypeList();
 	}
-	
-	//List구현 예정
-	
 
+	@Override
+	public List<Post> getPostListByDate(Criteria cri) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override
+	public ArrayList<Post> getPostList(Post post) {
+		//return communityDao.insertPost(post);
+		return null;
+		
+	}
 
 
 		
