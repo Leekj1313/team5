@@ -30,6 +30,12 @@ word/.settings/org.eclipse.core.resources.prefs
 word/.settings/org.eclipse.jdt.core.prefs
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 word/.gitignore
 
 account/.classpath
@@ -49,4 +55,18 @@ homework/.settings/org.eclipse.jdt.core.prefs
 university_lsj/.gitattributes
 university_lsj/.settings/org.eclipse.core.resources.prefs
 university_lsj/.settings/org.eclipse.jdt.core.prefs
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+=======
+=======
+homework/.settings/org.eclipse.jdt.core.prefs
+homework/.settings/org.eclipse.core.resources.prefs
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+homework/src/noticeBoard/1.활동기록_2024_02_02_금
+homework/src/noticeBoard/003_전자기기_커뮤니티_DDL 수정완.sql
+homework/src/noticeBoard/002_전자기기_커뮤니티_DDL 수정본.sql
+*.sql
+homework/src/noticeBoard/002_전자기기_커뮤니티_DDL 수정본.sql
+*.sql
 >>>>>>> Stashed changes

@@ -1,0 +1,88 @@
+package university.service;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentServiceImp implements StudentService {
+	
+	private Scanner scan = new Scanner(System.in);
+	
+	@Override
+	public boolean addStudent(List<Student>asd) {
+				//학생 정보 추가
+				System.out.println(" 학생명 :");
+				String sNam = scan.nextLine();
+				System.out.print(" 학생 번호 :");
+				String sNum = scan.nextLine();
+				System.out.print(" 학생 과목:");
+				String sub = scan.nextLine();
+					
+				Student std = new Student (sNam, sNum, sub); //생성자 바꾸기
+				asd.add(std); //바꾸기
+				
+				System.out.println("저장이 완료됐습니다.");
+				return true;
+				}
+	@Override
+	public boolean setStudent(List<Student>ssd) {
+		// 학생 수정
+		// 배열에 들어있는지 확인 없으면 false로 있으면 수정 실행
+		if (ssd == null || ssd.isEmpty()) {
+			System.out.println("수정할 학생 정보가 없습니다.");
+			return false;
+		}
+			System.out.println("수정할 학생명 :");
+			String oldNam = scan.nextLine();
+			System.out.println("수정할 학생번호 :");
+			String oldNum = scan.nextLine();
+			System.out.println("수정할 학생과목 :");
+			String oldSub = scan.nextLine();
+			//생성자 생성
+			Student oldSt = new Student (oldNam, oldNum, oldSub);
+			
+			int index = ssd.indexOf(oldSt);
+			if(index != -1) {
+				System.out.println("새로운 학생명 :");
+				String newNam = scan.nextLine();
+				System.out.println("새로운 학생번호 :");
+				String newNum = scan.nextLine();
+				System.out.println("새로운 학생과목 :");
+				String newSub = scan.nextLine();
+				
+				Student NewSt = new Student (newNam, newNum, newSub);
+				ssd.remove(index);
+				ssd.add(NewSt);
+				System.out.println("수정이 완료됐습니다.");
+				return true;
+			}else{
+				System.out.println("수정에 실패했습니다");
+				return false;
+			}	
+				
+}
+	@Override
+	public boolean removeStudent(List<Student>rsd) {
+		
+		if(rsd == null || rsd.isEmpty()) {
+			System.out.println("삭제 가능한 정보가 없습니다.");
+			return false;
+		}	
+		//학생 정보 삭제
+		System.out.println(" 삭제할 학생명 :");
+		String sNam = scan.nextLine();
+		System.out.println(" 삭제할 학생 번호 :");
+		String sNum = scan.nextLine();
+		System.out.println(" 삭제할 학생 과목:");
+		String sub = scan.nextLine();
+		Student sd = new Student(sNam, sNum, sub);
+		if(rsd.contains(sd)){      
+			rsd.remove(sd);       
+			System.out.println("강의가 삭제 되었습니다.");
+			return true;
+		}else {
+			System.out.println("삭제에 실패 했습니다.");
+			return false;
+		}
+	}
+
+}
