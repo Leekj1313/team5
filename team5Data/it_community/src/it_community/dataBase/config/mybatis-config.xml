@@ -15,7 +15,16 @@
     </environment>
   </environments>
   <mappers>
-    <!-- mapper 갯수만큼 추가  -->
+    <!-- 회원에 관한 MemberMapper 추가 -->
     <mapper resource="it_community/dataBase/dao/MemberMapper.xml"/>
+    
+    <!-- 게시판에 관한 communityMapper 추가 -->
+    <mapper resource="it_community/dataBase/dao/CommunityMapper.xml"/>
+    
+    <!-- 댓글에 관한 CommentMapper 추가 -->
+    <mapper resource="it_community/dataBase/dao/CommentMapper.xml"/>
+    
+    <!-- 신고에 관한 ReportMapper 추가 -->
+    <mapper resource="it_community/dataBase/dao/ReportMapper.xml"/>
   </mappers>
 </configuration>

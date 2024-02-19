@@ -6,11 +6,11 @@ import it_community.dataBase.model.vo.MemberVO;
 import java.io.IOException;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 
-import javax.script.AbstractScriptEngine;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.javassist.compiler.ast.Member;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -58,8 +58,18 @@ public class MemberServiceImp implements MemberService{
 	}
 	
 	@Override
-	public ArrayList<MemberVO> getMemberList() {
-		// memberDao에서 저장된 회원정보 불러오기
-		return memberDao.selectMemberList();
+	public List<Member> getMemberListById(String me_id) {
+		// ID를 기준으로 조회하여 수정한다 
+		if(me_id == null) {
+			return null;
+		}
+		return memberDao.selectMemberListById(me_id);
+	}
+	@Override
+	public boolean updateMember(String beforeMe_id, String afterMe_id, String beforeMe_pw, String afterMe_pw,
+								String beforeMe_email, String afterMe_email, String beforeMe_name, String afterMe_name,
+								String beforeMe_phone, String afterMe_phone) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

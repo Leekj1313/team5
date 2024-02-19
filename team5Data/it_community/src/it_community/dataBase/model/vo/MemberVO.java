@@ -29,6 +29,12 @@ public class MemberVO {
 	}
 
 	@Override
+	public String toString() {
+		return "[" + me_id + "|" + me_pw + "|" + me_email + "|" 
+				+ me_name + "|" + me_phone + "|" + me_access + "|" + me_active + "]";
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -37,15 +43,13 @@ public class MemberVO {
 		if (getClass() != obj.getClass())
 			return false;
 		MemberVO other = (MemberVO) obj;
-		return Objects.equals(me_access, other.me_access) && Objects.equals(me_active, other.me_active)
-				&& Objects.equals(me_email, other.me_email) && Objects.equals(me_id, other.me_id)
-				&& Objects.equals(me_name, other.me_name) && Objects.equals(me_phone, other.me_phone)
-				&& Objects.equals(me_pw, other.me_pw);
+		return Objects.equals(me_id, other.me_id);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(me_access, me_active, me_email, me_id, me_name, me_phone, me_pw);
+		return Objects.hash(me_id);
 	}
+	
 	
 }

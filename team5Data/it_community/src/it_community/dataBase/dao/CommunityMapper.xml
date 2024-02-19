@@ -2,12 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="경로.DAO명">
+<mapper namespace="it_community.dataBase.dao.CommunityDAO">
 	<!-- 태그에는 insert, select, update, delete가 들어감 -->
 	<!-- 게시글 작성 시 필요항목 게시판 분류, 기기 분류, 아이디, 제목, 날짜, 내용 -->
   <insert id="addPost">
-  	insert into post values (#{post.po_di_num},#{post.po_me_id},#{post.po_title}
-  							 #{post.po_date},#{post.po_content}) 
+  	insert into post values (#{post.po_ca_num},#{post.po_di_num},#{post.po_me_id},
+  							 #{post.po_title},#{post.po_date},#{post.po_content})
   </insert>
+  <insert id="category">
+  	insert into category values (#{category.ca_num}, #{category.ca_title}, #{category.ca_comu_num})
+  </insert>
+  <select id="selectCategoryList" resultType="it_community.dataBase.model.vo.CommunityVO">
+	select * from category
+  </select>
+  <select id="selectDiviceList" resultType="it_community.dataBase.model.vo.CommunityVO">
+	select * from divice
+  </select>
+  
+  <update id="">
+  
+  </update>
+  <delete id="">
+  
+  </delete>
 </mapper>
 			
