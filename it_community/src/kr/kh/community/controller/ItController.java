@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import kr.kh.community.model.vo.Category;
+import kr.kh.community.model.vo.Community;
 import kr.kh.community.model.vo.Post;
 import kr.kh.community.model.vo.Type;
 import kr.kh.community.service.ItService;
@@ -68,17 +69,19 @@ public class ItController {
 
 
 	private Post inputPost() throws ParseException{
-		// 게시글 종류 선택
-		List<Type> typeList = itService.getTypeList();
+		
+		//게시판 종류 선택
+		List<Community> typeList = itService.getTypeList();
 		
 		for(int i=0; i<typeList.size();i++) {
-			System.out.println(typeList.get(i).getTy_name());
+			System.out.println(typeList.get(i).getComu_name());
 			if(i != typeList.size() -1 ) {
 				System.out.println("/");
 			}
 		}
+		scan.nextLine();
 		System.out.println("중 하나를 입력하세요.");
-		int type = scan.nextInt();
+		String type = scan.nextLine();
 		
 		
 		//카테고리 선택
@@ -106,14 +109,16 @@ public class ItController {
 		System.out.print("내용을 입력하세요 : ");
 		String content = scan.nextLine();
 		
+		
 		return new Post(categoryNum, diviceNum, date, id, title, content);
 	
-		}
+		return null;
+	}
 	//추가메서드
 	private void insert() {
 		try {
 			Post post = inputPost();
-			System.out.println(post);
+			System.out.print(post);
 			if(itService.insertPost(post)) {
 				System.out.println("내역을 추가했습니다.");
 			}else {
@@ -121,12 +126,12 @@ public class ItController {
 			}
 			
 			
-		}catch(ParseException e) {
+			}catch(ParseException e) {
 			System.out.println("날짜 형식이 잘못됐습니다.");
-		}
+			}
 		
-	}
-
+			}
+	
 	//조회메서드
 	private void view() {
 		System.out.print("날짜를 입력하세요.(yyyy-MM-dd 또는 yyyy-MM 또는 yyyy) : ");

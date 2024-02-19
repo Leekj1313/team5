@@ -3,8 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.kh.community.dao.CommunityDAO">
-	<!-- 태그에는 insert, select, update, delete가 들어감 -->
-  <select id="selectBoardListByDate" resultType="kr.kh.community.model.vo.Post">
-  select * from Post where po_date like #{it_date}
-  </select>
+
+<select id="selectTypeList" resultType="kr.kh.community.model.vo.Community">
+select * from community
+</select>
+
+<select id="selectBoardListByDate"
+		resultType="kr.kh.community.model.vo.Post">
+		select * from Post where po_date like #{it_date}
+</select>
+	
+<insert id="insertPost">
+		insert into post(po_ca_num,po_di_num,po_me_id,po_title,po_date,po_content)
+		values(#{post.po_ca_num},#{post.po_di_num},#{post.po_date},#{post.po_me_id},#{post.po_id},#{post.po_title},#{post.po_content});
+</insert>
+
+
+
 </mapper>
