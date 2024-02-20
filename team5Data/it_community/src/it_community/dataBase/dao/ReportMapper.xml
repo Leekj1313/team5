@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it_community.dataBase.dao.ReportDAO">
+	<!-- id는 DAO의 매서드명과 같아야 한다 -->
+	<insert id="writeReport">
+		<!-- 회원가입 시 필요정보 아이디. 패스워드, 이메일, 이름, 전화번호, 권한, 상태  --> 
+		<!-- member.id 는 member.getId()를 호출한다 --> 
+		<!-- #{'', '', ''} 값을 각각 넣어준다, ${ , , ,}위치에 해당 값을 그대로 넣어준다 -->
+		insert into report values (#{report.getRep_me_id},#{report.getRep_rt_type},#{report.getRep_content})
+	</insert>
+	<select id="selectReport" resultType="it_community.dataBase.model.vo.ReportVO">
+		select * from report
+	</select>
+	<update id="">
+	
+	</update>
+	<delete id="">
+	
+	</delete>
+</mapper>

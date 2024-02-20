@@ -6,7 +6,8 @@ import it_community.dataBase.model.vo.MemberVO;
 import java.io.IOException;
 
 import java.io.InputStream;
-
+import java.lang.annotation.Retention;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -66,10 +67,30 @@ public class MemberServiceImp implements MemberService{
 		return memberDao.selectMemberListById(me_id);
 	}
 	@Override
-	public boolean updateMember(String beforeMe_id, String afterMe_id, String beforeMe_pw, String afterMe_pw,
-								String beforeMe_email, String afterMe_email, String beforeMe_name, String afterMe_name,
-								String beforeMe_phone, String afterMe_phone) {
+	public boolean updateMember(MemberVO updateMember) {
 		// TODO Auto-generated method stub
+		if(updateMember == null
+				|| updateMember.getMe_id() == null
+				|| updateMember.getMe_pw() == null
+				|| updateMember.getMe_email() == null
+				|| updateMember.getMe_name() == null
+				|| updateMember.getMe_phone() == null) {
 		return false;
+		}
+		boolean res = memberDao.updateMember(updateMember);
+		if(res) {
+			session.commit();
+		}
+		return res;
+	}
+	@Override
+	public ArrayList<MemberVO> getMemberList() {
+		// TODO Auto-generated method stub
+		return memberDao.selectMemberList();
+	}
+	@Override
+	public boolean deleteMember(String me_id) {
+		// TODO Auto-generated method stub
+		return memberDao.deleteMember(me_id);
 	}
 }

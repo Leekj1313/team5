@@ -1,5 +1,6 @@
 package it_community.dataBase.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -15,5 +16,11 @@ public interface MemberDAO {
 	
 	// 회원의 정보를 수정하기 위한 member의 me_id룰 조회한다
 	List<Member> selectMemberListById(@Param("me_id")String me_id);
+
+	boolean updateMember(@Param("updateMember")MemberVO updateMember);
+
+	ArrayList<MemberVO> selectMemberList();
+
+	boolean deleteMember(@Param("me_id")String me_id);
 
 }

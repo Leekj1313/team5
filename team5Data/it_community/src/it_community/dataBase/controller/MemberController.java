@@ -127,61 +127,91 @@ public class MemberController {
 		}
 		System.out.println("이전 아이디를 입력하세요. : ");
 		scan.nextLine();
-		String beforeMe_id = scan.nextLine();
+		String Me_id = scan.nextLine();
 		// 입력한 아이디가 틀렸을 경우
 		if(!memberList.contains(new Member(me_id))) {
 			System.out.println("잘못된 아이디 입니다.");
 			return;}
 		
 		System.out.println("이후 아이디를 입력하세요. : ");
-		String afterMe_id = scan.nextLine();
+		String after_me_id = scan.nextLine();
 		
 		System.out.println("이전 패스워드를 입력하세요. : ");
 		scan.nextLine();
-		String beforeMe_pw = scan.nextLine();
+		String Me_pw = scan.nextLine();
 		
 		System.out.println("이후 패스워드를 입력하세요. : ");
-		String afterMe_pw = scan.nextLine();
+		String after_me_pw = scan.nextLine();
 		
 		System.out.println("이전 이메일를 입력하세요. : ");
 		scan.nextLine();
-		String beforeMe_email = scan.nextLine();
+		String Me_email = scan.nextLine();
 		
 		System.out.println("이후 이메일를 입력하세요. : ");
-		String afterMe_email = scan.nextLine();
+		String after_me_email = scan.nextLine();
 		
 		System.out.println("이전 이름을 입력하세요. : ");
 		scan.nextLine();
-		String beforeMe_name = scan.nextLine();
+		String Me_name = scan.nextLine();
 		
 		System.out.println("이후 이름을 입력하세요. : ");
-		String afterMe_name = scan.nextLine();
+		String after_me_name = scan.nextLine();
 		
 		System.out.println("이전 전화번호를 입력하세요.(010-1234-4567) : ");
 		scan.nextLine();
-		String beforeMe_phone = scan.nextLine();
+		String Me_phone = scan.nextLine();
 		
 		System.out.println("이후 전화번호를 입력하세요.(010-1234-4567) : ");
-		String afterMe_phone = scan.nextLine();
+		String after_me_phone = scan.nextLine();
 		
+		MemberVO updateMember = MemberVO.updateMember(after_me_id, after_me_pw, 
+													  after_me_email, after_me_name, after_me_phone);
 		
-		
-		/*
-		if(memberList.updateMember(beforeMe_id, afterMe_id, beforeMe_pw, afterMe_pw, beforeMe_email, afterMe_email,
-								   beforeMe_name, afterMe_name, beforeMe_phone, afterMe_phone)) {
+		if(memberService.updateMember(updateMember)) {
 			System.out.println("회원의 정보를 수정했습니다.");
 		}else {
 			System.out.println("회원 정보 수정에 실패하였습니다.");
-		}*/
+		}
 	}
 		
 	private static void deleteMember() {
 		// TODO Auto-generated method stub
+		System.out.print("아이디를 입력하세요. : ");
+		String mr_id = scan.next();
 		
+		List<Member> memberList = memberService.getMemberListById(mr_id);
+		
+		if(memberList == null || memberList.size() == 0) {
+			System.out.println("일치하는 회원의 정보가 없습니다.");
+			return;
+	}
+	// 일치하는 회원의 정보가 있으면 삭제 진행	
+	for(Member member : memberList) {
+		System.out.println(member);
+		}
+		System.out.print("탈퇴할 아이디를 입력하세요. : ");
+		String me_id = scan.next();
+		// 입력한 아이디가 제대로 입력됬는지 확인
+		if(!memberList.contains(new Member(me_id))) {
+			System.out.println("아이디 입력 오류 입니다.");
+			return;
+		}
+		if(memberService.deleteMember(me_id)) {
+			System.out.println("회원이 정상 탈퇴되었습니다.");
+		}else {
+			System.out.println("회원의 탈퇴 작업에 실패하였습니다.");
+		}
 	}
 	
 	private static void printMember() {
-	
+		ArrayList<MemberVO>list = memberService.getMemberList();
+		if(list.size() == 0) {
+			System.out.println("등록된 회원이 없습니다.");
+			return;
+		}
+		for(MemberVO tmp : list) {
+			System.out.println(tmp);
+		}
 	}
 	
 	private static void login() {

@@ -2,8 +2,6 @@ package it_community.dataBase.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Locale.Category;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -35,29 +33,11 @@ public class CommunityServiceImp implements CommunityService{
 	}
 	
 	@Override
-	public List<Category> getCategoryList(String category) {
-		// 대분류 선택 (공지게시판, 자유게시판, 정보게시판) 리스트에서 가져온다 => from category 테이블(SQL)
-		if(category == null) {
-			return null;
-		}
-		return communityDao.selectCategoryList(category);
-	}
-	
-	@Override
-	public List<Divice> getDiviceList(String divice) {
-		// TODO Auto-generated method stub
-		if(divice == null) {
-			return null;
-		}
-		return communityDao.selectDiviceList(divice);
-	}
-	
-	@Override
 	public boolean addPost(CommunityVO post) {
 		// 게시글 작성 시 필요항목 게시판 분류, 기기 분류, 아이디, 제목, 날짜, 내용 
 		if(post == null
-				|| post.getPo_ca_num() == null
-				|| post.getPo_di_num() == null
+				|| post.getPo_ca_num() == 0
+				|| post.getPo_di_num() == 0
 				|| post.getPo_me_id() == null
 				|| post.getPo_title() == null
 				|| post.getPo_date() == null

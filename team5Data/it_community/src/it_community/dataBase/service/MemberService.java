@@ -1,5 +1,6 @@
 package it_community.dataBase.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -15,8 +16,11 @@ public interface MemberService {
 	// 회원의 정보를 수정하기 위해 Id를 조회하는 코드 
 	List<Member> getMemberListById(@Param("me_id")String me_id);
 
-	boolean updateMember(String beforeMe_id, String afterMe_id, String beforeMe_pw, String afterMe_pw,
-						 String beforeMe_email, String afterMe_email, String beforeMe_name, String afterMe_name,
-						 String beforeMe_phone, String afterMe_phone);
+	boolean updateMember(MemberVO updateMember);
+
+	ArrayList<MemberVO> getMemberList();
+
+	boolean deleteMember(String me_id);
+
 
 }

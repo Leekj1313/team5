@@ -1,7 +1,5 @@
 package it_community.dataBase.controller;
 
-import java.util.List;
-import java.util.Locale.Category;
 import java.util.Scanner;
 
 import it_community.dataBase.model.vo.CommunityVO;
@@ -32,7 +30,7 @@ public class CommunityController {
 			printCommunityMenu();
 			menu = scan.nextInt();
 			runCommunityMenu(menu);
-		}while(menu != 0);
+		}while(menu != 5);
 	}
 
 	private static void printCommunityMenu() {
@@ -41,8 +39,8 @@ public class CommunityController {
 		System.out.println("2. 커뮤니티를 시작합니다");
 		System.out.println("3. 댓글 관리를 시작합니다");
 		System.out.println("4. 커뮤니티 관리를 시작합니다");
-		System.out.println("5. 관리자 메뉴 입니다");
-		System.out.println("6. 이용을 끝냅니다");
+		//System.out.println("5. 관리자 메뉴 입니다");
+		System.out.println("5. 이용을 끝냅니다");
 		System.out.print("메뉴 선택 : ");
 		
 	}
@@ -57,18 +55,18 @@ public class CommunityController {
 				writePost();
 			break;
 		case 3: 
-				// 댓글 기능관리 원래라면 게시글 관리에 포함시켜야 겠지만 각각의 기능으로 대처
-				// writeComment();
+				CommentController();
 			break;
 		case 4: 
-				// 게시글 과 댓글 신고
-				// writeReport();
+				ReportContlloer();
 			break;
+		/*	
 		case 5: 
-				// 회원의 관리, 게시글 관리, 신고의 결과를 입력
-				// writeResult();
+				회원의 관리, 게시글 관리, 신고의 결과를 입력
+				 Result();
  			break;
-		case 6: 
+		*/
+		case 5: 
 				System.out.println("이용을 종료합니다.");
 			break;
 			
@@ -76,11 +74,22 @@ public class CommunityController {
 			System.out.println("잘못된 메뉴 입니다.");
 		}
 	}
-
+	
 	private static void memberController() {
 		// 회원 관련 기능 관리를 진행합니다 
 		memberController();
 		
+	}
+
+	private static void CommentController() {
+		// TODO Auto-generated method stub
+		CommentController();
+		
+	}
+	
+	private static void ReportContlloer() {
+		// TODO Auto-generated method stub
+		ReportContlloer();
 	}
 	
 	private static void writePost() {
@@ -109,7 +118,7 @@ public class CommunityController {
 
 		switch(menu) {
 		case 1: 
-				//addPost();
+				addPost();
 			break;
 		case 2: 
 				setPost();
@@ -127,37 +136,15 @@ public class CommunityController {
 				System.out.println("잘못된 메뉴 입니다.");
 		}
 	}
-	/*
+
 	private static void addPost() {
 		// 게시글 작성 시 필요항목 게시판 분류, 기기 분류, 아이디, 제목, 날짜, 내용 
 
-		// 대분류 선택 (공지게시판, 자유게시판, 정보게시판)
-		List<Category>categoryList = communityService.getCategoryList();
+		System.out.println("커뮤니티 선택 : "); 
+		int po_ca_num = scan.nextInt();
 		
-		for(int i = 0; i < categoryList.size(); i++) {
-			System.out.print(categoryList.get(i).getCa_num());
-			if((i != categoryList.size() - 1)) {
-				System.out.println(" | ");
-			}
-		}
-		System.out.println("이용할 게시판을 선택하세요.");
-		// 대분류의 선택을 받는다 
-		int category = scan.nextInt();
-		String po_ca_num;
-		
-		// 중분류 선택 (스마트폰, 태블릿, 주변기기, 카메라, PC, 기타)
-		List<Divice>diviceList = communityService.getDiviceList();
-		
-		for(int i = 0; i < diviceList.size(); i++) {
-			System.out.print(diviceList.get(i).getdi_title());
-			if((i != diviceList.size() - 1)) {
-				System.out.println(" | ");
-			}
-		}
-		System.out.println("작성할 기기 종류를 선택하세요.");
-		// 중분류의 선택을 받는다 
-		int divice = scan.nextInt();
-		int po_di_num;
+		System.out.println("디바이스 선택 : ");
+		int po_di_num = scan.nextInt();
 		
 		System.out.println("작성자 아이디 : ");
 		String po_me_id = scan.next();
@@ -180,7 +167,7 @@ public class CommunityController {
 			System.out.println("게시글 작성 실패!");
 		}	
 	}
-	*/
+	
 	private static void setPost() {
 		// TODO Auto-generated method stub
 		System.out.println("제목을 입력하세요 : ");

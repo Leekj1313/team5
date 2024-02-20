@@ -12,13 +12,21 @@
 								   #{member.me_name},#{member.me_phone},#{member.me_access},
 								   #{member.me_active})
 	</insert>
-	<select id="selectMemberListById" resultType="it_community.dataBase.model.vo.MemberVO">
+	<update id="updateMember">
+		UPDATE updateMember
+		SET 
+			me_id = #{updateMember.After_me_id}, #{updateMember.After_me_pw}, 
+					#{updateMember.After_me_email}, #{updateMember.After_me_name}, 
+					#{updateMember.After_me_phone}
+		WHERE
+			me_id = #{member.me_id}
+	</update>
+	<delete id="deleteMember">
+		DELETE
+		FROM member
+		WHERE  me_id = #{me_id}
+	</delete>
+		<select id="selectMemberListById" resultType="it_community.dataBase.model.vo.MemberVO">
 		select * from member
 	</select>
-	<update id="">
-	
-	</update>
-	<delete id="">
-	
-	</delete>
 </mapper>

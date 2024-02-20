@@ -50,6 +50,14 @@ public class MemberVO {
 	public int hashCode() {
 		return Objects.hash(me_id);
 	}
-	
+
+	public MemberVO updateMember(String after_me_id, String after_me_pw, String after_me_email, String after_me_name, String after_me_phone) {
+		// TODO Auto-generated method stub
+		this.me_id = after_me_id;
+		this.me_pw = after_me_pw;
+		this.me_email = after_me_email;
+		this.me_name = after_me_name;
+		this.me_phone = after_me_phone;
+		}
 	
 }
